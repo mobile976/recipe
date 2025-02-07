@@ -22,7 +22,6 @@
         </div>
       </section>
 
-      <!-- Edit Recipe Section -->
       <section v-if="editingRecipe" class="edit-recipe-section">
         <EditRecipe :recipe="editingRecipe" @cancel="cancelEdit" @save="saveRecipe" />
       </section>
@@ -41,8 +40,8 @@ export default {
   data() {
     return {
       recipes: [],
-      user: null, // Simulated user or real user
-      editingRecipe: null, // Recipe being edited
+      user: null,
+      editingRecipe: null,
     };
   },
   computed: {
@@ -69,14 +68,13 @@ export default {
         ...doc.data(),
       }));
 
-      // Simulate logged-in user for local testing
       if (process.env.NODE_ENV === "development") {
         this.user = {
           displayName: "Test User",
-          uid: "test-user-id", // Simulated UID
+          uid: "test-user-id",
         };
       } else {
-        this.user = auth.currentUser; // Real user in production
+        this.user = auth.currentUser;
       }
     } catch (error) {
       console.error("Error fetching recipes: ", error.message);
@@ -87,7 +85,7 @@ export default {
       return this.user && recipe.uid === this.user.uid;
     },
     editRecipe(recipe) {
-      this.editingRecipe = { ...recipe }; // Clone the recipe to avoid direct mutations
+      this.editingRecipe = { ...recipe };
     },
     cancelEdit() {
       this.editingRecipe = null;
@@ -103,12 +101,11 @@ export default {
         });
         alert("Recipe updated successfully!");
 
-        // Update the local list
         this.recipes = this.recipes.map((recipe) =>
           recipe.id === updatedRecipe.id ? updatedRecipe : recipe
         );
 
-        this.editingRecipe = null; // Close the edit section
+        this.editingRecipe = null;
       } catch (error) {
         console.error("Error updating recipe: ", error.message);
         alert("Failed to update recipe.");
@@ -132,26 +129,25 @@ export default {
 </script>
 <style scoped src="@/assets/styles/components/search-section.css"></style>
 <style scoped>
-/* Font and Color Scheme */
 @import "@/assets/styles/variables.css";
 
 .page-container {
-  background-color: #ffc181; /* Background color */
-  min-height: 100vh; /* Ensures the container covers the full viewport height */
+  background-color: #ffc181;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0; /* Removes any default margin */
+  margin: 0;
 }
 
 .header {
   background-color: #ff9021;
-  color: #f5f5f5; /* Light Gray for better contrast */
+  color: #f5f5f5;
   text-align: center;
   padding: 40px 20px;
   border-radius: 8px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  margin: 20px 0px 20px 0px; /* Adds 15px space on left and right, 20px on top, and 30px at the bottom */
+  margin: 20px 0px 20px 0px;
   width: 95%;
 }
 
@@ -159,19 +155,19 @@ export default {
   font-size: 2.8rem;
   font-weight: bold;
   letter-spacing: 2px;
-  color: #f5f5f5; /* Light Gray for better contrast */
+  color: #f5f5f5;
 }
 
 .header a {
   display: inline-block;
-  color: #f5f5f5; /* Light gray text */
-  background-color: #aa5412; /* Complementary orange for the button */
-  text-decoration: none; /* Remove underline */
+  color: #f5f5f5;
+  background-color: #aa5412;
+  text-decoration: none;
   font-size: 1rem;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s, transform 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
 }
 

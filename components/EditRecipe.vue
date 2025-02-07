@@ -34,13 +34,12 @@
     },
     data() {
       return {
-        // Clone the prop to avoid direct mutation
         editedRecipe: { ...this.recipe },
       };
     },
     methods: {
       save() {
-        this.$emit("save", this.editedRecipe); // Emit the updated recipe
+        this.$emit("save", this.editedRecipe);
       },
     },
   };

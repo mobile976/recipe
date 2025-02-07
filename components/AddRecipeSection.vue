@@ -25,7 +25,7 @@ export default {
   methods: {
     async addRecipe() {
       const user = process.env.NODE_ENV === "development" 
-        ? { uid: "test-user-id" } // Simulated user for development
+        ? { uid: "test-user-id" }
         : auth.currentUser;
 
       if (!user) return alert("Please log in.");

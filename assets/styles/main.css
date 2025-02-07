@@ -1,8 +1,6 @@
-/* assets/styles/main.css */
 
-/* Base styles */
 body {
-  font-family: Arial, sans-serif; /* Assuming $font-family is Arial */
+  font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
   margin: 0;
@@ -15,15 +13,15 @@ h1, h2 {
 }
 
 button {
-  background-color: #007bff; /* Assuming $primary-color is #007bff */
+  background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 8px 16px; /* Assuming $spacing-small is 8px and $spacing-medium is 16px */
+  padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0069d9; /* Assuming a 10% darkened $primary-color */
+  background-color: #0069d9;
 }
