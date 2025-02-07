@@ -1,6 +1,14 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  
+  router: {
+    base: '/nasha-nuxt/'  // ✅ Corrected base path for GitHub Pages
+  },
+
+  render: {
+    resourceHints: false  // ✅ Disables unnecessary preloading warnings
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
