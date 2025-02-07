@@ -32,7 +32,6 @@ export default {
         console.error("Facebook login failed:", error);
       }
     },
-
     async logout() {
       try {
         await signOut(auth);
